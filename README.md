@@ -12,8 +12,11 @@ Works with Google asistant (for free ! Thanks to the openHAB Cloud Connector).
 
 ### Features
 ✅ On / off switch
+
 ✅ Dimmer
+
 ✅ Color selection ⚠️The color cannot be read from the JSON, as it is not readable in RGB mode... A transformation (in JS for example) could perhaps allow the reading of the color (change from XY to RGB). But the color selection via Google Home or openHAB works perfectly.
+
 ✅ The color temperature (which allows to adjust the shades of white on the bulb) varies between 150 and 500 (unit?).  The spec indicates that these lights can vary from 2000 to 6500 kelvin. So I made a JS script to do the conversion (linear) from 2000 (warmest) to 6500 kelvin (coldest) to 500 (warmest) to 150 (coldest), and it does the job perfectly! The value remains displayed in Kelvin on openHAB.
 
 
