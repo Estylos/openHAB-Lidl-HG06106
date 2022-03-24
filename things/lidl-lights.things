@@ -1,0 +1,82 @@
+// Bridge definition an parameters
+Bridge mqtt:broker:moslidl [
+    lwtQos="1",
+    publickeypin="true",
+    keepAlive="60",
+    secure="false",
+    certificatepin="true",
+    password="xxxxxxxxxx",
+    qos="1",
+    reconnectTime="60000",
+    host="127.0.0.1",
+    lwtRetain="true",
+    enableDiscovery="true",
+    username="xxxxxxxxxx"
+]
+
+
+{
+    // "Light Thing" Lidl Livarno Lux E27 bulb RGB (model HG06106C) :
+    Thing topic jsonE27 "JSON E27" @ "Séjour" {
+        Channels:
+            Type switch : jsonSwitchE27 "JSON Switch E27" [
+                stateTopic="zigbee/lights/sejour/bureau/state",
+                commandTopic="zigbee/lights/sejour/bureau/set",
+                on="ON",
+                off="OFF"
+            ]
+            Type dimmer : jsonDimmerE27 "JSON Dimmer E27" [
+                stateTopic="zigbee/lights/sejour/bureau",
+                commandTopic="zigbee/lights/sejour/bureau/set/brightness",
+                min=0,
+                max=254,
+                transformationPattern="JSONPATH:$.brightness"
+            ]
+            Type color : jsonColorE27 "JSON Color E27" [
+                stateTopic="zigbee/lights/sejour/bureau",
+                commandTopic="zigbee/lights/sejour/bureau/set",
+                colorMode="RGB",
+                formatBeforePublish="{\"color\":{\"r\":%s, \"g\":%s, \"b\":%s}}",
+                transformationPattern="JSONPATH:$.color"    // does not work... it would be necessary to transform in another way the chain
+            ]
+            Type number : jsonColorTempE27 "JSON Color Temp E27" [
+                stateTopic="zigbee/lights/sejour/bureau",
+                commandTopic="zigbee/lights/sejour/bureau/set",
+                transformationPatternOut="JS:colortemp_diviser.js", 
+                //formatBeforePublish="{\"color_temp\":%s}", 
+                transformationPattern="JSONPATH:$.color_temp"                   
+            ]
+    }
+    
+    // "Light Thing" Lidl Livarno Lux E14 candle RGB (model HG06106B) :
+    Thing topic jsonE14 "JSON E14" @ "Chambre" {
+        Channels:
+            Type switch : jsonSwitchE14 "JSON Switch E14" [
+                stateTopic="zigbee/lights/chambre/chevet/state",
+                commandTopic="zigbee/lights/chambre/chevet/set",
+                on="ON",
+                off="OFF"
+            ]
+            Type dimmer : jsonDimmerE14 "JSON Dimmer E14" [
+                stateTopic="zigbee/lights/chambre/chevet",
+                commandTopic="zigbee/lights/chambre/chevet/set/brightness",
+                min=0,
+                max=254,
+                transformationPattern="JSONPATH:$.brightness"
+            ]
+            Type color : jsonColorE14 "JSON Color E14" [
+                stateTopic="zigbee/lights/chambre/chevet/bureau",
+                commandTopic="zigbee/lights/chambre/chevet/set",
+                colorMode="RGB",
+                formatBeforePublish="{\"color\":{\"r\":%s, \"g\":%s, \"b\":%s}}",
+                transformationPattern="JSONPATH:$.color"    // does not work... it would be necessary to transform in another way the chain
+            ]
+            Type number : jsonColorTempE14 "JSON Color Temp E14" [
+                stateTopic="zigbee/lights/chambre/chevet/bureau",
+                commandTopic="zigbee/lights/chambre/chevet/set",
+                transformationPatternOut="JS:colortemp_diviser.js", 
+                //formatBeforePublish="{\"color_temp\":%s}", 
+                transformationPattern="JSONPATH:$.color_temp"                   
+            ]
+    }
+}
