@@ -1,13 +1,13 @@
 // https://www.openhab.org/docs/ecosystem/google-assistant/
 
-Group  E27Group 													{ ga="Light" [ useKelvin=true, colorTemperatureRange="2000,6500" ] }
-Switch E27SwitchLight 		"E27 Switch"          		(E27Group) 	{ ga="lightPower", channel="mqtt:topic:moslidl:jsonE27:jsonSwitchE27" }
-Dimmer E27DimmerLight 		"E27 Dimmer"     			(E27Group) 	{ ga="lightBrightness", channel="mqtt:topic:moslidl:jsonE27:jsonDimmerE27" }
-Color  E27ColorLight 		"E27 Color"            		(E27Group) 	{ ga="lightColor", channel="mqtt:topic:moslidl:jsonE27:jsonColorE27" }
-Number E27ColorTempLight 	"E27 Color Temperature"		(E27Group) 	{ ga="lightColorTemperature", channel="mqtt:topic:moslidl:jsonE27:jsonColorTempE27" } // in Kelvin
+Group  E27Group                                                     { ga="Light" [ useKelvin=true, colorTemperatureRange="2000,6500" ] }
+Switch E27SwitchLight       "E27 Switch"                (E27Group)  { ga="lightPower", channel="mqtt:topic:moslidl:jsonE27:jsonSwitchE27" }
+Dimmer E27DimmerLight 		"E27 Dimmer"     			(E27Group)  { ga="lightBrightness", channel="mqtt:topic:moslidl:jsonE27:jsonDimmerE27" }
+Color  E27ColorLight 		"E27 Color"            		(E27Group)  { ga="lightColor", channel="mqtt:topic:moslidl:jsonE27:jsonColorE27" }
+Number E27ColorTempLight 	"E27 Color Temperature"		(E27Group)  { ga="lightColorTemperature", channel="mqtt:topic:moslidl:jsonE27:jsonColorTempE27" } // in Kelvin
 
-Group  E14Group 													{ ga="Light" [ useKelvin=true, colorTemperatureRange="2000,6500" ] }
-Switch E14SwitchLight 		"E14 Switch"          		(E14Group) 	{ ga="lightPower", channel="mqtt:topic:moslidl:jsonE14:jsonSwitchE14" }
-Dimmer E14DimmerLight 		"E14 Dimmer"     			(E14Group) 	{ ga="lightBrightness", channel="mqtt:topic:moslidl:jsonE14:jsonDimmerE14" }
-Color  E14ColorLight 		"E14 Color"            		(E14Group) 	{ ga="lightColor", channel="mqtt:topic:moslidl:jsonE14:jsonColorE14" }
-Number E14ColorTempLight 	"E14 Color Temperature"		(E14Group) 	{ ga="lightColorTemperature", channel="mqtt:topic:moslidl:jsonE14:jsonColorTempE14" } // in Kelvin
+Group  E14Group                                                     { ga="Light" [ useKelvin=true, colorTemperatureRange="2000,6500" ] }
+Switch E14SwitchLight 		"E14 Switch"          		(E14Group)  { ga="lightPower", channel="mqtt:topic:moslidl:jsonE14:jsonSwitchE14" }
+Dimmer E14DimmerLight 		"E14 Dimmer"                (E14Group)  { ga="lightBrightness", channel="mqtt:topic:moslidl:jsonE14:jsonDimmerE14" }
+Color  E14ColorLight 		"E14 Color"            		(E14Group)  { ga="lightColor", channel="mqtt:topic:moslidl:jsonE14:jsonColorE14" }
+Number E14ColorTempLight 	"E14 Color Temperature"		(E14Group)  { ga="lightColorTemperature", channel="mqtt:topic:moslidl:jsonE14:jsonColorTempE14" } // in Kelvin
